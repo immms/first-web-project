@@ -1,0 +1,358 @@
+/* 공통요소 */
+*{
+    list-style: none;
+    text-decoration: none;
+    border-collapse : collapse;
+    padding: 0;
+}
+
+/* 나눔바른펜 글꼴 */
+@font-face {
+    font-family: 'NanumBarunpen';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumBarunpen.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root{  /* 한번에 수정 쉽게 */
+    --text-color:#f0f4f4;
+    --background-color:rgba(0,0,0,0.9);  /* 불투명도90% */
+    --accent-color:#00644C;
+}
+
+h1{
+    font-size: 48px;
+    font-weight: 100;
+}
+.contents1{
+    font-size: 25px;
+    font-weight: lighter;
+}
+.contents2{
+    font-size: 20px;
+}
+.contents_bold{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+/* nav바 */
+
+body{
+    margin:0;
+}
+
+/* a태그=하이퍼링크 걸어주는태그 */
+a {
+    color:var(--text-color);
+}
+
+.navbar{
+    /* black han sans 글꼴 */
+    font-family: 'Black Han Sans', sans-serif;
+    display:flex;
+    justify-content: space-between; 
+    align-items: center;  /* flex컨테이너 가운데 배치 */
+    background-color:var(--background-color);
+    padding:8px 12px;
+    position: fixed;
+    width:100%; 
+    /* 잘려나와서 100%줌 */
+    border-bottom: 1px solid white;
+}
+.navbar__logo{
+    margin-left: 10px;
+}
+.navbar__logo a{
+    font-size: 22px;
+    color:var(--text-color);
+}
+.navbar__logo i{
+    color: var(--text-color); 
+    margin-right: 5px;
+}
+
+.navbar__menu{
+    display: flex;
+    padding-left: 0px;
+}
+.navbar__menu li{
+    padding:8px 12px; /* 위아래, 왼오 */
+    margin-left: 0px;
+}
+.navbar__menu li:hover {
+    background-color: var(--accent-color);
+    border-radius: 4px;
+}
+
+.navbar__icons{
+    color: var(--text-color);
+    display: flex;
+    margin-right: 15px;
+}
+.navbar__icons li{
+    padding: 8px 12px;
+    margin-right: 3px;
+    cursor: pointer;
+}
+
+.navbar__toogleBtn{
+    /* 문서의 흐름에서 나와 position */
+    position: absolute;
+    /* 화면이 작아졌을때만 나오게 */
+    display: none; 
+    right: 68px;
+    font-size: 24px;
+    color: var(--text-color);
+}
+
+/* 화면이 좁아짐에 따라 우리가 원하는 레이아웃으로 
+레이아웃을 반응형으로 -> 미디어쿼리
+*/
+@media screen and (max-width:880px){
+    .navbar{
+        flex-direction: column; /* 로고중심축은 현재수직인데 수평으로 놓고싶으므로*/
+        align-items: flex-start; 
+        padding: 28px 24px;
+    }
+    
+    .navbar__menu{
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%; 
+        /* 중간으로 오게하기위해 */
+    }
+    .navbar__menu li{
+        width: 100%;
+        text-align: center; /* 너비가 넓어졌을때 텍스트 자동으로 왼쪽정렬되기때매 */
+    }
+    .navbar__icons{
+        display: none;
+        /* 아이콘은 flex방향 바꾸지않고 중간으로 */
+        justify-content: center;
+        width: 100%;
+    }
+    .navbar__toogleBtn{
+        display: block;
+    }
+
+    /* 토글클릭시 이벤트->javascript */
+    .navbar__menu.active,
+    .navbar__icons.active{
+        display:flex;
+    }
+}
+
+.intro_bg0{
+    background-color: #000;
+    height:570px;
+}
+
+.intro_wrap{
+    background-color:black;
+    width:100%;
+    height:100%;
+    padding-top:110px; /* margin말고 */
+}
+
+.intro_bg1{
+    background-image:url('image/intro_1.jpg');
+    height:480px;;
+    width:955px;
+    margin:auto;
+    margin-top: 20px ;
+    background-size: cover;
+}
+
+.intro_bg2{
+    background-image:url('image/intro_2_2.jpg');
+    height:500px;
+    width:960px;
+    margin:auto;
+    background-size: cover;
+
+}
+.intro_bg3{
+    background-image:url('image/intro_3_2.jpg');
+    height:500px;
+    width:960px;
+    margin:auto;
+    background-size: cover;
+
+}
+.intro_bg4{
+    background-image:url('image/intro_4.jpg');
+    height:510px;
+    width:960px;
+    margin:auto;
+    background-size: cover;
+
+}
+.intro_bg5{
+    background-image:url('image/intro_5.jpg');
+    height:510px;
+    width:960px;
+    margin:auto;
+    background-size: cover;
+}
+.intro_bg5{
+    background-image:url('image/intro_6_2.jpg');
+    height:510px;
+    width:960px;
+    margin:auto;
+    background-size: cover;
+}
+
+.slide_show{
+    background-image:url('image/slide_1.jpg');
+    height:100vh;
+    width:960px;
+    margin:auto;
+    background-size: cover;
+}
+
+
+
+.intro_bg12{
+    background-image:url('image/instagram.jpg');
+    height:650px;
+    width:100%;
+    background-size: cover;
+}
+
+.amount{
+    /*글씨체: 나눔바른펜 */
+    font-family: 'NanumBarunpen'; 
+    display: flex;
+    width: 100%;
+    background: #fff;
+    box-shadow:0px 0px 10px rgba(0,0,0,0.1);
+    /* 우 하 흐려짐정도  */
+    margin:auto;
+}
+.amount>li{
+    flex:1;
+    height:132px;
+}
+.amount>li>div{
+    text-align: center;
+    margin-top: 37px;
+    height:57px;
+}
+.amount>li:not(:last-child)>div{
+    /* 마지막 요소 제외하고 */
+    border-right: 1px solid #e1e1e1;
+}
+
+.main_text0{
+    /*글씨체: 나눔바른펜 */
+    font-family: 'NanumBarunpen'; 
+    width:100%;
+    height:601px;
+    background: #F1F2F3;
+    margin-top: -32px;
+
+}
+.main_text0 > h1{
+    padding-top: 60px;
+    text-align: center;
+}
+.main_text0 > .contents_bold{
+    text-align: center;
+}
+.icons{
+    /* 태그들 한줄로정렬 */
+    display: flex;
+    width:1000px;
+    height:400px;
+    margin:auto;
+}
+.icons>li{
+    /* flex로 자리1씩 차지 */
+    flex:1;
+    margin-top :35px;
+    height: 300px;
+    text-align: center;
+}
+
+.icons>li:not(:last-child){
+    margin-right: 20px;
+}
+.icons .contents2{
+    width:240px;
+    margin:auto;
+    letter-spacing: -1px;
+}
+.more{
+    width: 100px;
+    height: 30px;
+    background: blue;
+    color: #fff;
+    font-size: 12px;
+    line-height: 30px;
+    margin: 10px auto;
+    border-radius:3px;
+    cursor: pointer;
+}
+
+.main_text1{
+    /*글씨체: 나눔바른펜 */
+    font-family: 'NanumBarunpen'; 
+    width:100%;
+    height: 550px;
+    background: #F1F2F3;
+}
+.main_text1 > h1{
+    font-weight: bold;
+    padding-top: 60px;
+    text-align: center;
+}
+.main_text1 > .contents1{
+    text-align: center;
+    width:380px;
+    margin: auto;
+}
+.service{
+    width:1000px;
+    display:flex;
+    margin: 35px auto;
+    height: 280px;
+}
+.service>.contents2{
+    padding: 20px;
+    margin: auto;
+}
+.service>.contents2>h2{
+    margin-bottom: 27px;
+}
+.service>.product_photo>img{
+    border-radius: 200px;
+}
+
+.more2{
+    width: 220px;
+    height: 40px;
+    border:1px solid #fff;
+    line-height: 40px;
+    margin: 16px auto;
+    cursor: pointer;
+}
+footer{
+    margin: -16px auto;
+
+    font-size: 13px;
+    display: flex;
+    background: #1f1f1f;
+    padding:30px;
+}
+footer>div:first-child{
+    flex:3;
+    text-align: center;
+    color:#fff;
+}
+footer>div:last-child{
+    flex:9;
+    color: #fff;
+}
